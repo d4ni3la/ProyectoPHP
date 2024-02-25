@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');           /*importa una libreria que tiene la tipografia MONTSERRAT*/
+
+.cont-botones{
+    display: flex;                          /*acomoda los items de manera horizontal por default*/
+    flex-wrap: wrap;                        /*puede acomodarse en diferentes lineas de no ser suficiente espacio*/
+    justify-content: space-around;          /*distribuye el espacio entre y alrededor del objeto*/
+    padding: 8px;                          /*indica el espaciado de los bordes*/
+}       .botones{       /*PROPIEDADES DE LOS BOTONES*/
+            width: 200px;                           /*indica el tamaño del objeto de esa clase*/
+            padding: 10px;                          /*indica el espaciado de los bordes*/
+            display: flex;                          /*acomoda los items de manera horizontal por default*/
+            justify-content: center;                /*acomoda el texto al centro*/
+            border: 1px solid #c7a36e9c;          /*indica el ancho y color del borde*/
+            border-radius: 10px;                    /*indica cuanto se redondean los bordes*/
+            background-color: #edc78e6c;          /*indica el color del fondo*/
+            font-family: 'Montserrat', sans-serif;      /*establece el tipo de letra que llevara esta clase*/
+            font-size: 20px;                        /*indica el tamaño del texto*/
+            flex-grow: 1;
+            }   .botones:hover{     /*PROPIEDAD DEL BOTON EN HOVER*/
+                    background-color: #c09960; 
+                }
+
+.links{
+    color: black;                                 /*indica el color inicial de los vinculos*/
+}
+
+a:visited{
+    color: #aa8349;                               /*indica el color del texto despues de que el vinculo haya sido visitado*/
+}
+
+#btn-utilizado{
+    background-color: #ccb38e;                    /*indica el color del fondo*/
+}
+

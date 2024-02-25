@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');    /*importa una libreria que tiene la tipografia KOULEN*/
+
+body{
+    background-color: rgba(237, 199, 142, 0.26);    /*indica el color y transparencia de la etiqueta body*/
+}
+
+/*------------------------------- HEADER*/
+.enc{
+    display: flex;                          /*acomoda los items de manera horizontal por default*/
+    justify-content: space-between;         /*acomoda los intems en el 'main axis' distribuyendolos de forma proporcional*/
+    background-color: #EDC78E;            /*establece el color que tendra de fondo esta clase*/
+    align-items: baseline;                  /*si hay diferectes tamaños la linea base de los textos estara alineada a la misma altura*/
+    height: 90px;                           /*indica la altura del objeto*/
+    align-items: center;                    /*acomoda a los objetos que estan dentro al centro verticalmente*/
+}
+
+/*DIV LOGO: espacio que encapsulara la imagen*/
+.logo-enc{
+    width: 110px;                           /*indica el tamaño del objeto de esa clase*/
+    flex-shrink: 0;                         /*le esta diciendo que el item se rehusa a reducirse*/  
+    
+    padding: 2px;                           /*indica el espaciado de los bordes*/
+    display: flex;                          /*acomoda los items de manera horizontal por default*/
+    justify-content: center;                /*acomoda el texto al centro*/
+}       .tam-logo{    /*PROPIEDADES DE LA IMAGEN*/
+            width: 80px;                            /*indica el tamaño del objeto*/
+        }
+
+/*TEXTO ENCABEZADO*/
+.txt-enc{
+    font-family: 'Koulen', sans-serif;      /*establece el tipo de letra que llevara esta clase*/
+    flex-grow: 1;                           /*le permite al objeto crecer si tiene espacio*/   
+    font-size: 35px;                        /*indica el tamaño del texto*/
+    padding: 10px;                          /*indica el espaciado de los bordes*/
+    display: flex;                          /*acomoda los items de manera horizontal por default*/
+    justify-content: flex-end;              /*acomoda el texto al final del contenedor*/
+    align-items: center;                    /*acomoda a los objetos que estan dentro al centro verticalmente*/
+}
+
+
+/*texto: CONTINENTES*/
+.txt-cont{
+    font-family: 'Koulen', sans-serif;      /*establece el tipo de letra que llevara esta clase*/
+    flex-grow: 1;                           /*le permite al objeto crecer si tiene espacio*/   
+    font-size: 28px;                        /*indica el tamaño del texto*/
+    padding: 8px;                          /*indica el espaciado de los bordes*/
+    display: flex;                          /*acomoda los items de manera horizontal por default*/
+    justify-content: flex-start;              /*acomoda el texto al principio del contenedor*/
+    align-items: center;                    /*acomoda a los objetos que estan dentro al centro verticalmente*/
+}
+
+/*----------------------------- FOOTER*/
+.pie{
+    display: flex;                          /*acomoda los items de manera horizontal por default*/
+    justify-content: center;                /*acomoda el texto al centro*/
+    background-color: #EDC78E;            /*establece el color que tendra de fondo esta clase*/
+    align-items: baseline;                  /*si hay diferectes tamaños la linea base de los textos estara alineada a la misma altura*/
+    height: 60px;                           /*indica la altura del objeto*/
+    padding: 5px;                           /*espaciado entre los bordes*/
+}       .hom{
+            flex-wrap: nowrap;
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;        /*acomoda el texto al centro*/
+}
+.tam-hom{    /*PROPIEDADES DE LA IMAGEN*/
+    width: 60px;                            /*indica el tamaño del objeto*/
+}
+
+.d-api{
+    display: flex;                          /*acomoda los items de manera horizontal por default*/
+    justify-content: center;                /*acomoda el texto al centro*/
+    background-color: #ccad7e;            /*establece el color que tendra de fondo esta clase*/
+    align-items: baseline;                  /*si hay diferectes tamaños la linea base de los textos estara alineada a la misma altura*/
+    height: 30px;                           /*indica la altura del objeto*/
+    align-items: center;                    /*acomoda a los objetos que estan dentro al centro verticalmente*/
+    padding: 10px;                           /*espaciado entre los bordes*/
+}
+.txt-api{
+    font-family: 'Montserrat', sans-serif;      /*establece el tipo de letra que llevara esta clase*/
+    font-size: 15px;                        /*indica el tamaño del text*/
+}
+
+
+/*--------------------------------- CONTENIDO*/
+.cuerpo{
+    display: flex;
+    justify-content: center;                /*acomoda el texto al centro*/
+    padding: 10px;                          /*espaciado ente lso bordes*/
+}
+
+.img-cont{
+    width: 600px;
+    height: 700px;
+}
