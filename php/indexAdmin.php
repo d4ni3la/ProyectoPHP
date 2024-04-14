@@ -10,10 +10,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard</title>
+    <title>Administrador</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="cssPHPa.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../continentes/h-f.css" type="text/css" media="all">
     <style type="text/css">
         .wrapper{
             width: 650px;
@@ -24,6 +26,12 @@
         }
         table tr td:last-child a{
             margin-right: 15px;
+        }
+        body{
+            background-color: rgba(109, 82, 42, 0.555);
+        }
+        .pie{
+            background-color: rgba(109, 82, 42, 0.555);
         }
     </style>
     <script type="text/javascript">
@@ -39,7 +47,7 @@
                 <div class="col-md-12">
                     <div class="page-header clearfix">
                         <h2 class="pull-left">Sección de Comentarios</h2>
-                        <a href="createAdmin.php" class="btn btn-success pull-right">Agregar nuevo comentario</a>
+                        <a href="createAdmin.php" class="btn btn-success pull-right" id="b-g">Agregar nuevo comentario</a>
                     </div>
                     <?php
                     // Include config file
@@ -67,7 +75,7 @@
                                         echo "<td>" . $row['comentario'] . "</td>";
                                         echo "<td>" . $row['calificacion'] . "</td>";
                                         echo "<td>";
-                                            echo "<a href='read.php?id=". $row['id'] ."' title='Ver' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
+                                            echo "<a href='readAdmin.php?id=". $row['id'] ."' title='Ver' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
                                             echo "<a href='update.php?id=". $row['id'] ."' title='Actualizar' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
                                             echo "<a href='delete.php?id=". $row['id'] ."' title='Borrar' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
                                         echo "</td>";
@@ -89,11 +97,18 @@
                     ?>
 
                     <div>
-                        <a href="cerrarAdmin.php" class="btn btn-success pull-right">Cerrar Sesion Administrador</a>
+                        <a href="cerrarAdmin.php" class="btn btn-success pull-right" id="b-g">Cerrar Sesion Administrador</a>
+                        <br><br><br><br><br>
                     </div>
                 </div>
             </div>        
         </div>
+    </div>
+    <div class="pie">       <!--div que contiene la imagen con vinculo hacia la pagina de inicio-->
+        <div class="hom">
+            <a href="../index.html"><img src="../imgs/home.png" class="tam-hom"></a>
+            <br>
+        </div> 
     </div>
 </body>
 </html>

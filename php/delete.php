@@ -53,6 +53,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     <meta charset="UTF-8">
     <title>Borrar</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="cssPHPa.css" type="text/css" media="all">
     <style type="text/css">
         .wrapper{
             width: 500px;
@@ -70,7 +71,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                     </div>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="alert alert-danger fade in">
-                            <input type="hidden" name="id" value="<?php echo trim($_GET["id"]); ?>"/>
+                            <input type="hidden" id="b-d" name="id" value="<?php echo trim($_GET["id"]); ?>"/>
                             <p>Está seguro que deseas borrar el registro</p><br>
                             <p>
                                 <input type="submit" value="Si" class="btn btn-danger">

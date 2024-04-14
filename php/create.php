@@ -76,6 +76,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <title>Agregar Empleado</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="cssPHP.css" type="text/css" media="all">
     <style type="text/css">
         .wrapper{
             width: 500px;
@@ -108,8 +109,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <input type="text" name="calificacion" class="form-control" value="<?php echo $calificacion; ?>">
                             <span class="help-block"><?php echo $calificacion_err;?></span>
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Submit">
-                        <a href="indexAdmin.php" class="btn btn-default">Cancelar</a>
+                        <input type="submit" class="btn btn-primary" value="Submit" id="b-g">
+                        <a href="index.php" class="btn btn-default">Cancelar</a>
                     </form>
                 </div>
             </div>        

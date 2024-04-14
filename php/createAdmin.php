@@ -61,7 +61,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Records created successfully. Redirect to landing page
-                header("location: index.php");
+                header("location: indexAdmin.php");
                 exit();
             } else{
                 echo "Something went wrong. Please try again later.";
@@ -83,10 +83,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <title>Agregar Empleado</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="cssPHPa.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../continentes/h-f.css" type="text/css" media="all">
     <style type="text/css">
         .wrapper{
             width: 500px;
             margin: 0 auto;
+        }
+        body{
+            background-color: rgba(109, 82, 42, 0.555);
         }
     </style>
 </head>
@@ -115,7 +120,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <input type="text" name="calificacion" class="form-control" value="<?php echo $calificacion; ?>">
                             <span class="help-block"><?php echo $calificacion_err;?></span>
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Submit">
+                        <input type="submit" class="btn btn-primary" value="Submit" id="b-g">
                         <a href="indexAdmin.php" class="btn btn-default">Cancelar</a>
                     </form>
                 </div>
