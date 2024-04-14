@@ -137,10 +137,14 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     <meta charset="UTF-8">
     <title>Actualizar Registro</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="cssPHPa.css" type="text/css" media="all">
     <style type="text/css">
         .wrapper{
             width: 500px;
             margin: 0 auto;
+        }
+        body{
+            background-color: rgba(109, 82, 42, 0.555);
         }
     </style>
 </head>
@@ -170,8 +174,8 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                             <span class="help-block"><?php echo $calificacion_err;?></span>
                         </div>
                         <input type="hidden" name="id" value="<?php echo $id; ?>"/>
-                        <input type="submit" class="btn btn-primary" value="Enviar">
-                        <a href="index.php" class="btn btn-default">Cancelar</a>
+                        <input type="submit" class="btn btn-primary" value="Enviar" id="b-g">
+                        <a href="indexAdmin.php" class="btn btn-default">Cancelar</a>
                     </form>
                 </div>
             </div>        

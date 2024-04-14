@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');    /*importa una libreria que tiene la tipografia KOULEN*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');   
+
+body{
+    background-color: rgba(237, 199, 142, 0.26);
+    /*background-color: #EDC78E;*/
+}
+
+h2{
+    font-family: 'Koulen', sans-serif;
+    font-size: 35px;
+}
+
+a, td, tr, label{
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*BOTONES*/
+#b-g{
+    background-color: #EDC78E;
+    border-color: #cca468de;
+    font-family: 'Montserrat', sans-serif;
+}
+#b-g:hover{
+    background-color: #d3b17d;
+}

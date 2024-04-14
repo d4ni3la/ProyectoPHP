@@ -61,6 +61,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
     <meta charset="UTF-8">
     <title>Ver Empleado</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="cssPHPa.css" type="text/css" media="all">
     <style type="text/css">
         .wrapper{
             width: 500px;
@@ -88,7 +89,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                         <label>Calificacion</label>
                         <p class="form-control-static"><?php echo $row["calificacion"]; ?></p>
                     </div>
-                    <p><a href="index.php" class="btn btn-primary">Volver</a></p>
+                    <p><a href="indexAdmin.php" class="btn btn-primary" id="b-g">Volver</a></p>
                 </div>
             </div>        
         </div>

@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="cssPHP.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../botones.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../continentes/h-f.css" type="text/css" media="all">
     <style type="text/css">
         .wrapper{
             width: 650px;
@@ -16,6 +19,9 @@
         }
         table tr td:last-child a{
             margin-right: 15px;
+        }
+        body{
+            background-color: rgba(237, 199, 142, 0.26);
         }
     </style>
     <script type="text/javascript">
@@ -30,8 +36,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header clearfix">
-                        <h2 class="pull-left">Sección de Comentarios</h2>
-                        <a href="create.php" class="btn btn-success pull-right">Agregar nuevo comentario</a>
+                        <h2 class="pull-left" >Sección de Comentarios</h2>
+                        <a href="create.php" class="btn btn-success pull-right" id="b-g">Agregar nuevo comentario</a>
                     </div>
                     <?php
                     // Include config file
@@ -81,11 +87,17 @@
                     ?>
 
                     <div>
-                        <a href="ingresarAdmin.php" class="btn btn-success pull-right">Ingresar Administrador</a>
+                        <a href="ingresarAdmin.php" class="btn btn-success pull-right" id="b-g">Ingresar Administrador</a>
+                        <br><br><br><br><br>
                     </div>
                 </div>
             </div>        
         </div>
+    </div>
+    <div class="pie">       <!--div que contiene la imagen con vinculo hacia la pagina de inicio-->
+        <div class="hom">
+            <a href="../index.html"><img src="../imgs/home.png" class="tam-hom"></a>
+        </div> 
     </div>
 </body>
 </html>
