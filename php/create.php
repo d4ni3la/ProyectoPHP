@@ -3,11 +3,11 @@
 // Include config file
 require_once "config.php";
  
-// Define variables and initialize with empty values
+// define e inicializa variables
 $nombre = $comentario = $calificacion = "";
 $nombre_err = $comentario_err = $calificacion_err = "";
  
-// Processing form data when form is submitted
+// valida que se llenen los campos
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate name
     $input_nombre = trim($_POST["nombre"]);
@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $nombre = $input_nombre;
     }
     
-    // Validate COMENTARIO
+    // valida com
     $input_comentario = trim($_POST["comentario"]);
     if(empty($input_comentario)){
         $comentario_err = "Por favor ingrese una dirección.";     
@@ -27,7 +27,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $comentario = $input_comentario;
     }
     
-    // Validate CALIFICACION
+    // valida CALIFICACION
     $input_calificacion = trim($_POST["calificacion"]);
     if(empty($input_calificacion)){
         $calificacion_err = "Por favor ingrese el monto del salario del empleado.";     
@@ -37,23 +37,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $calificacion = $input_calificacion;
     }
     
-    // Check input errors before inserting in database
+    // Check input errors en la bd
     if(empty($nombre_err) && empty($comentario_err) && empty($calificacion_err)){
-        // Prepare an insert statement
+        // prepara insert statement
         $sql = "INSERT INTO comentario (nombre, comentario, calificacion) VALUES (?, ?, ?)";
          
         if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
+            // concatena los parametros
             mysqli_stmt_bind_param($stmt, "sss", $param_nombre, $param_comentario, $param_calificacion);
             
-            // Set parameters
+            // establece los parameters
             $param_nombre = $nombre;
             $param_comentario = $comentario;
             $param_calificacion = $calificacion;
             
-            // Attempt to execute the prepared statement
+            // ejecuta el prepared statement
             if(mysqli_stmt_execute($stmt)){
-                // Records created successfully. Redirect to landing page
+                // crea correctamente y redirige
                 header("location: index.php");
                 exit();
             } else{
@@ -61,11 +61,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             }
         }
          
-        // Close statement
+        // cierra statement
         mysqli_stmt_close($stmt);
     }
     
-    // Close connection
+    // cierra connection
     mysqli_close($link);
 }
 ?>
