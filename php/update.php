@@ -14,6 +14,8 @@ require_once "config.php";
 // Define variables and initialize with empty values
 $nombre = $comentario = $calificacion = "";
 $nombre_err = $comentario_err = $calificacion_err = "";
+$regiones = array(); // Nuevo campo para regiones
+$regiones_err = "";
  
 // Processing form data when form is submitted
 if(isset($_POST["id"]) && !empty($_POST["id"])){
@@ -41,27 +43,35 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     // Validate salary
     $input_calificacion = trim($_POST["calificacion"]);
     if(empty($input_calificacion)){
-        $calificacion_err = "Por favor ingrese el monto del salario del empleado.";     
+        $calificacion_err = "Por favor ingrese calificacion.";     
     } elseif(!ctype_digit($input_calificacion)){
         $calificacion_err = "Por favor ingrese un valor positivo y válido.";
     } else{
         $calificacion = $input_calificacion;
     }
+
+    // Validar REGIONES
+    if(empty($_POST['region'])) {
+        $regiones_err = "Por favor seleccione al menos una región.";
+    } else {
+        $regiones = $_POST['region'];
+    }
     
     // Check input errors before inserting in database
     if(empty($nombre_err) && empty($comentario_err) && empty($calificacion_err)){
         // Prepare an update statement
-        $sql = "UPDATE comentario SET nombre=?, comentario=?, calificacion=? WHERE id=?";
+        $sql = "UPDATE comentario SET nombre=?, region=?, comentario=?, calificacion=? WHERE id=?";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ssii", $param_nombre, $param_comentario, $param_calificacion, $param_id);
+            mysqli_stmt_bind_param($stmt, "sssii", $param_nombre, $param_region, $param_comentario, $param_calificacion, $param_id);
             
             // Set parameters
             $param_nombre = $nombre;
             $param_comentario = $comentario;
             $param_calificacion = $calificacion;
             $param_id = $id;
+            $param_region = implode(",", $regiones); // Convertir array a cadena separada por comas
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -107,6 +117,8 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                     $nombre = $row["nombre"];
                     $comentario = $row["comentario"];
                     $calificacion = $row["calificacion"];
+                    // Obtener regiones seleccionadas
+                    $regiones = explode(",", $row["region"]);
                 } else{
                     // URL doesn't contain valid id. Redirect to error page
                     header("location: error.php");
@@ -164,9 +176,18 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                             <span class="help-block"><?php echo $nombre_err;?></span>
                         </div>
                         <div class="form-group <?php echo (!empty($comentario_err)) ? 'has-error' : ''; ?>">
-                            <label>Direccion</label>
+                            <label>Comentario</label>
                             <textarea name="comentario" class="form-control"><?php echo $comentario; ?></textarea>
                             <span class="help-block"><?php echo $comentario_err;?></span>
+                        </div>
+                        <div class="class-form">
+                            <select name="region[]" multiple class="form-control">
+                                <option value="America">America</option>
+                                <option value="Asia">Asia</option>
+                                <option value="Africa">Africa</option>
+                                <option value="Europa">Europa</option>
+                                <option value="Oceania">Oceania</option>
+                            </select>
                         </div>
                         <div class="form-group <?php echo (!empty($calificacion_err)) ? 'has-error' : ''; ?>">
                             <label>Sueldo</label>

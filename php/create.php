@@ -7,6 +7,9 @@ require_once "config.php";
 $nombre = $comentario = $calificacion = "";
 $nombre_err = $comentario_err = $calificacion_err = "";
  
+$regiones = array(); // Array para almacenar las regiones seleccionadas
+$regiones_err = ""; // Mensaje de error para la región
+
 // valida que se llenen los campos
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate name
@@ -36,20 +39,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $calificacion = $input_calificacion;
     }
+
+    if(empty($_POST['region'])) {
+        $regiones_err = "Por favor seleccione al menos una región.";
+    } else {
+        $regiones = $_POST['region'];
+    }
     
     // Check input errors en la bd
     if(empty($nombre_err) && empty($comentario_err) && empty($calificacion_err)){
         // prepara insert statement
-        $sql = "INSERT INTO comentario (nombre, comentario, calificacion) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO comentario (nombre, region, comentario, calificacion) VALUES (?, ?, ?, ?)";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // concatena los parametros
-            mysqli_stmt_bind_param($stmt, "sss", $param_nombre, $param_comentario, $param_calificacion);
+            mysqli_stmt_bind_param($stmt, "ssss", $param_nombre, $param_region, $param_comentario, $param_calificacion);
             
             // establece los parameters
             $param_nombre = $nombre;
             $param_comentario = $comentario;
             $param_calificacion = $calificacion;
+            $param_region = implode(",", $regiones); // Convertir array a cadena separada por comas
             
             // ejecuta el prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -98,6 +108,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <label>Nombre</label>
                             <input type="text" name="nombre" class="form-control" value="<?php echo $nombre; ?>">
                             <span class="help-block"><?php echo $nombre_err;?></span>
+                        </div>
+                        <div class="class-form">
+                            <select name="region[]" multiple class="form-control">
+                                <option value="America">America</option>
+                                <option value="Asia">Asia</option>
+                                <option value="Africa">Africa</option>
+                                <option value="Europa">Europa</option>
+                                <option value="Oceania">Oceania</option>
+                            </select>
                         </div>
                         <div class="form-group <?php echo (!empty($comentario_err)) ? 'has-error' : ''; ?>">
                             <label>Comentario</label>
