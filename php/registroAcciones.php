@@ -47,7 +47,7 @@
                 <div class="col-md-12">
                     <div class="page-header clearfix">
                         <h2 class="pull-left">Sección de Comentarios</h2>
-                        <a href="registroAcciones.php" class="btn btn-success pull-right" id="b-g">Registro de acciones</a>
+                        <a href="indexAdmin.php" class="btn btn-success pull-right" id="b-g">Regresar Comentarios</a>
                         <!--
                         <a href="createAdmin.php" class="btn btn-success pull-right" id="b-g">Agregar nuevo comentario</a>-->
                     </div>
@@ -56,17 +56,16 @@
                     require_once "config.php";
                     
                     // Attempt select query execution
-                    $sql = "SELECT * FROM comentario";
+                    $sql = "SELECT * FROM auditoria";
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
                             echo "<table class='table table-bordered table-striped'>";
                                 echo "<thead>";
                                     echo "<tr>";
                                         echo "<th>#</th>";
-                                        echo "<th>Nombre</th>";
-                                        echo "<th>Region</th>";
-                                        echo "<th>Comentario</th>";
-                                        echo "<th>Calificacion</th>";
+                                        echo "<th>Usuario</th>";
+                                        echo "<th>Fecha</th>";
+                                        //echo "<th>Calificacion</th>";
                                         echo "<th>Acción</th>";
                                     echo "</tr>";
                                 echo "</thead>";
@@ -74,15 +73,14 @@
                                 while($row = mysqli_fetch_array($result)){
                                     echo "<tr>";
                                         echo "<td>" . $row['id'] . "</td>";
-                                        echo "<td>" . $row['nombre'] . "</td>";
-                                        echo "<td>" . $row['region'] . "</td>";
-                                        echo "<td>" . $row['comentario'] . "</td>";
-                                        echo "<td>" . $row['calificacion'] . "</td>";
-                                        echo "<td>";
+                                        echo "<td>" . $row['usuario'] . "</td>";
+                                        echo "<td>" . $row['fecha'] . "</td>";
+                                        echo "<td>" . $row['accion'] . "</td>";
+                                        /*echo "<td>";
                                             echo "<a href='readAdmin.php?id=". $row['id'] ."' title='Ver' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
                                             echo "<a href='update.php?id=". $row['id'] ."' title='Actualizar' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
                                             echo "<a href='delete.php?id=". $row['id'] ."' title='Borrar' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
-                                        echo "</td>";
+                                        echo "</td>";*/
                                     echo "</tr>";
                                 }
                                 echo "</tbody>";                            

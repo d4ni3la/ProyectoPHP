@@ -44,13 +44,7 @@
                     require_once "config.php";
                     
                     // Attempt select query execution
-                    $sql = "SELECT * FROM comentario WHERE calificacion>7";
-                    // Verifica si se ha enviado el formulario con una selección de región
-                    if(isset($_POST['region']) && !empty($_POST['region'])) {
-                        $region = $_POST['region'];
-                        $region = implode("','", $region); // Convierte el array en una cadena separada por comas
-                        $sql = "SELECT * FROM comentario WHERE region IN ('$region')";
-                    }
+                    $sql = "SELECT * FROM comentario";
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
                             echo "<table class='table table-bordered table-striped'>";
@@ -93,24 +87,13 @@
                     // Close connection
                     mysqli_close($link);
                     ?>
-                    <form method="post">
-                        <div class="class-form">
-                            <select name="region[]" multiple class="form-control">
-                                <option value="America">America</option>
-                                <option value="Asia">Asia</option>
-                                <option value="Africa">Africa</option>
-                                <option value="Europa">Europa</option>
-                                <option value="Oceania">Oceania</option>
-                            </select>
-                        </div>
-                        <input type="submit" class="btn btn-primary" value="Filtrar">
-                    </form>
+                    
                     <div>
-                    <br><br><br><br><br>
-                        <a href="ingresarAdmin.php" class="btn btn-success pull-right" id="b-g">Ingresar Administrador</a>
+                        <a href="index.php" class="btn btn-success pull-right" id="b-g">Filtrar</a>
+                        <br><br><br><br><br>
                     </div>
                     <div>
-                        <a href="todComent.php" class="btn btn-success pull-right" id="b-g">Todos los Comentarios</a>
+                        <a href="ingresarAdmin.php" class="btn btn-success pull-right" id="b-g">Ingresar Administrador</a>
                         <br><br><br><br><br>
                     </div>
                 </div>
